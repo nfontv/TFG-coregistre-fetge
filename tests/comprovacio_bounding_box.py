@@ -82,16 +82,6 @@ def extract_prompt_boxes(mask_loaded, every_n=10):
     """
     Retorna una llista de (slice_idx, bbox) per usar com a prompts de BOX.
 
-    A diferencia del prompt de mascara (que donava el contorn exacte i, en
-    fases sense GT propi, sembrava la forma del fetge d'una altra fase), la box
-    nomes localitza el fetge dins d'un rectangle. Aixo deixa que MedSAM2
-    segmenti sobre la imatge real de cada fase, preservant el desplacament que
-    el co-registre ha de mesurar.
-
-    Es posa una box cada 'every_n' talls AMB FETGE, mes els dos extrems (z0, z1)
-    i el key slice, per reancorar la propagacio i evitar la deriva en volums
-    llargs.
-
     Parametres:
         mask_loaded: np.ndarray (n_slices, H, W), binaria (0/1), alineada al CT
                      de la fase de referencia (PV) i projectada a la graella comuna.

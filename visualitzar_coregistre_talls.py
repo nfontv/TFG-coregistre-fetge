@@ -1,25 +1,6 @@
 """
-visualitzar_coregistre_3talls.py
 
-Visualitzacio DIAGNOSTICA a posteriori del resultat del co-registre, per a un
-pacient + fase mobil + config concrets. Treballa a la GRAELLA COMUNA (l'espai on
-es va calcular la transformacio).
-
-Fons (a les dues figures): CT de la fase MOBIL (arterial/pre-contrast) reprojectat
-a la graella comuna, SENSE moure, amb la seva segmentacio MedSAM2 a sobre (verd).
-
-  FIGURA 1 - PV sense transformar:  + mascara PV tal qual (vermell)
-             Mostra el desalineament de partida entre PV i la fase mobil.
-
-  FIGURA 2 - PV transformada amb la INVERSA dels params optims (vermell)
-             La transformacio optima porta mobil -> PV; la seva inversa porta
-             PV -> mobil, de manera que la PV es mou cap al CT mobil quiet.
-             Mostra l'alineament aconseguit pel registre.
-
-  (verd = seg. mobil  |  vermell = PV  |  groc = coincidencia)
-
-Cada figura mostra TRES talls: axial, coronal i sagital, amb l'aspecte fisic
-corregit per l'spacing anisotrop.
+Cada figura mostra TRES talls: axial, coronal i sagital
 
 params_opt es LLEGEIX del CSV de resultats (no es recalcula).
 
@@ -40,7 +21,7 @@ import SimpleITK as sitk
 from src import dataset, utils, transformation
 
 
-# --- Camins ---------------------------------------------------------------
+
 # ATENCIO: descomenta el bloc de la maquina on executes.
 BASE_PATH = Path(__file__).parent
 
@@ -58,7 +39,6 @@ OUT_DIR = BASE_PATH / "results_coregistre" / "visualitzacions_resultat"
 FASE_FIXA = "pv"
 
 
-# ---------------------------------------------------------------------------
 def llegeix_params_opt(csv_path, pacient, fase_mobil, config):
     """Recupera params_opt (vector 6) del CSV de resultats per a la fila demanada."""
     df = pd.read_csv(csv_path)
@@ -83,7 +63,7 @@ def llegeix_fila(csv_path, pacient, fase_mobil, config):
     return fila.iloc[0]
 
 
-# --------------------------- Visualitzacio de talls ---------------------------
+#  Visualitzacio de talls
 def _tall_amb_index(vol, eix, idx):
     """Llesca 2D del volum per l'eix (0=axial, 1=coronal, 2=sagital). Convencio (Z,Y,X)."""
     if eix == 0:
@@ -111,8 +91,7 @@ def _panell(ax, base, g, r, aspect, titol):
 def dibuixa(ct_fons, seg_verd, mask_vermell, titol, path_to_save, spacing):
     """
     Tres talls (axial, coronal, sagital) amb CT de fons + seg_verd (verd) +
-    mask_vermell (vermell); solapament en groc. Aspecte fisic corregit per
-    l'spacing anisotrop.
+    mask_vermell (vermell); solapament en groc.
 
     spacing: (sx, sy, sz) en mm, tal com el retorna img.GetSpacing() de SITK.
     Volums en convencio (Z, Y, X).
@@ -150,14 +129,8 @@ def dibuixa(ct_fons, seg_verd, mask_vermell, titol, path_to_save, spacing):
     print(f"Figura desada a: {path_to_save}")
 
 
-# --------------------------- Corba de convergencia ---------------------------
 def dibuixa_convergencia(history, titol, path_to_save):
-    """
-    Corba de convergencia. Accepta historial:
-      - 1D (format vell): nomes la perdua.
-      - 2D (n_feval, 2) (format nou): col 0 = perdua, col 1 = DSC.
-    Dibuixa la perdua (baixa) i, si hi es, el DSC (puja) en un segon eix Y.
-    """
+
     history = np.asarray(history, dtype=float)
     if history.size == 0:
         print("[avis] history buit, no es grafica la convergencia.")
@@ -204,7 +177,7 @@ def dibuixa_convergencia(history, titol, path_to_save):
     print(f"Figura desada a: {path_to_save}")
 
 
-# --------------------------- main ---------------------------
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--pacient", required=True)

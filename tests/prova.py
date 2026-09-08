@@ -1,6 +1,3 @@
-import sys, pathlib
-sys.path.insert(0, str(pathlib.Path(__file__).parent.parent / "src"))
-
 from pathlib import Path
 from tkinter.font import names
 import numpy as np

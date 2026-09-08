@@ -1,25 +1,4 @@
 """"
-visualitza_resultat_coregistre.py
-
-Visualitzacio DIAGNOSTICA a posteriori del resultat del co-registre, per a un
-pacient + fase mobil + config concrets. Treballa a la GRAELLA COMUNA (l'espai on
-es va calcular la transformacio).
-
-Fons (a les dues figures): CT de la fase MOBIL (arterial/pre-contrast) reprojectat
-a la graella comuna, SENSE moure, amb la seva segmentacio MedSAM2 a sobre (verd).
-
-  FIGURA 1 — PV sense transformar:  + mascara PV tal qual (vermell)
-             Mostra el desalineament de partida entre PV i la fase mobil.
-
-  FIGURA 2 — PV transformada amb la INVERSA dels params optims (vermell)
-             La transformacio optima porta mobil -> PV; la seva inversa porta
-             PV -> mobil, de manera que la PV es mou cap al CT mobil quiet.
-             Mostra l'alineament aconseguit pel registre.
-
-  (verd = seg. mobil  |  vermell = PV  |  groc = coincidencia)
-
-params_opt es LLEGEIX del CSV de resultats (no es recalcula).
-
 Us:
     python visualitzar_coregistre.py --pacient HCC_004 --fase_mobil pre-contrast --csv results_coregistre/tots_els_experiments.csv --config hd95_powell
 """
@@ -39,7 +18,7 @@ from src import dataset, utils, transformation
 
 
 
-# --- Camins (ajusta'ls als teus; mateixos que run_nou.py) ---
+# Camins (ajusta'ls als teus; mateixos que run_nou.py)
 BASE_PATH = Path(__file__).parent
 #DATASET_PATH = Path("/Volumes/noemifont/TFG DATA/manifest-1774974966100/HCC-TACE-Seg")
 DATASET_PATH = Path("/Users/noemifontvoorhoeve/Desktop/TFG/manifest-1758635350325/HCC-TACE-Seg")
@@ -51,7 +30,6 @@ OUT_DIR = BASE_PATH / "results_coregistre" / "visualitzacions_resultat_004_hd_95
 FASE_FIXA = "pv"
 
 
-# ---------------------------------------------------------------------------
 def llegeix_params_opt(csv_path, pacient, fase_mobil, config):
     """Recupera params_opt (vector 6) del CSV de resultats per a la fila demanada."""
     df = pd.read_csv(csv_path)

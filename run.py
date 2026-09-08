@@ -10,7 +10,6 @@ La taula mestra (format llarg) s'escriu UN COP al final.
 Historial per config: matriu (n_feval, 2) -> col 0 = loss, col 1 = DSC.
 """
 
-# ---- Control de fils: HA d'anar ABANS d'importar numpy/scipy/sitk ----
 import os
 os.environ["OMP_NUM_THREADS"] = "1"
 os.environ["MKL_NUM_THREADS"] = "1"
