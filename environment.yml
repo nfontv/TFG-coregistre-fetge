@@ -1,0 +1,6 @@
+name: medsam2
+channels:
+  - defaults
+dependencies:
+  - python=3.12
+prefix: /Users/noemifontvoorhoeve/miniconda3/envs/medsam2

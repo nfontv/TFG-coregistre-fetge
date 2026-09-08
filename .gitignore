@@ -1,0 +1,39 @@
+# Dades de pacient i sortides pesades — MAI al repo
+data*/
+dades/
+segmentations_MedSam2/
+segmentacions/
+filtre_segmentacions/
+results/
+Proves/
+*.zip
+*.dcm
+*.nii
+*.nii.gz
+*.npy
+*.npz
+
+# Model de tercers i pesos
+MedSAM2/
+checkpoints/
+*.pt
+*.pth
+
+# Entorns i IDE
+venv/
+.venv/
+.idea/
+.vscode/
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store
+._*
+
+# Excepció: corbes de convergència (sèries numèriques, no imatges)
+!resultats/**/history/*.npy
+segmentation_models/
