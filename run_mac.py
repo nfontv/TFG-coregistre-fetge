@@ -47,19 +47,14 @@ import argparse
 
 BASE_PATH = Path(__file__).parent
 
-#datasets emprats al mac
-#DATASET_PATH = Path("/Users/noemifontvoorhoeve/Desktop/TFG/manifest-1758635350325/HCC-TACE-Seg")
-#DATASET_PATH = Path("/Volumes/noemifont/TFG DATA/manifest-1774974966100/HCC-TACE-Seg")
-#SEGMENTATIONS_PATH = Path("/Users/noemifontvoorhoeve/Desktop/CoregistreRigidFetge-main/segmentations_MedSam2")
-#TAULA_COMPLEMENTARIA_PATH = Path('/Users/noemifontvoorhoeve/Desktop/CoregistreRigidFetge-main/41597_2023_1928_MOESM1_ESM.xlsx')
-#FILTRE_SEGMENTACIONS_CVS_PATH = Path('/Users/noemifontvoorhoeve/Desktop/CoregistreRigidFetge-main/filtre_segmentacions/metriques_filtre.csv')
-
-
-#dataset del pen drive
-DATASET_PATH = Path(r"I:\tgf noemi\data tgf noemi\manifest-1783073007564\HCC-TACE-Seg")
-SEGMENTATIONS_PATH = Path(r"C:\Users\Noemí Font\Desktop\CoregistreRigidFetge-main\segmentations_MedSam2")
-TAULA_COMPLEMENTARIA_PATH = Path(r"C:\Users\Noemí Font\Desktop\CoregistreRigidFetge-main\41597_2023_1928_MOESM1_ESM.xlsx")
-FILTRE_SEGMENTACIONS_CVS_PATH = Path(r"C:\Users\Noemí Font\Desktop\CoregistreRigidFetge-main\filtre_segmentacions\metriques_filtre.csv")
+# Rutes centralitzades a config.py (les dades externes es configuren amb la
+# variable d'entorn TFG_DATA; veure config.py i el README).
+from config import (
+    DATASET_PATH,
+    SEGMENTATIONS_PATH,
+    TAULA_COMPLEMENTARIA_PATH,
+    FILTRE_SEGMENTACIONS_CSV_PATH as FILTRE_SEGMENTACIONS_CVS_PATH,
+)
 
 DESCARTS_MANUALS = {"HCC_054", "HCC_089"}
 

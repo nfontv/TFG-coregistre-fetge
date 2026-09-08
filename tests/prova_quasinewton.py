@@ -1,7 +1,12 @@
+import sys, pathlib
+sys.path.insert(0, str(pathlib.Path(__file__).parent.parent))
+
 import numpy as np
 from pathlib import Path
 
-base = Path(r"C:\Users\Noemí Font\Desktop\CoregistreRigidFetge-main\results_coregistre\taula_resultats_2026.07.14_10.32.00\history")
+from config import RESULTATS_PATH
+
+base = RESULTATS_PATH / "taula_resultats_2026.07.14_10.32.00" / "history"
 
 for cfg in ["soft_dice_lbfgsb", "soft_dice_powell"]:
     h = np.load(base / f"HCC_025_arterial_{cfg}.npy")

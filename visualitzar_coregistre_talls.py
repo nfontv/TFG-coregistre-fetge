@@ -22,18 +22,13 @@ from src import dataset, utils, transformation
 
 
 
-# ATENCIO: descomenta el bloc de la maquina on executes.
 BASE_PATH = Path(__file__).parent
 
-#  Windows (maquina de 32 nuclis)
-DATASET_PATH = Path(r"C:\Users\Noemí Font\Desktop\CoregistreRigidFetge-main\data tgf noemi\manifest-1783073007564\HCC-TACE-Seg")
+# Rutes centralitzades a config.py (les dades externes es configuren amb la
+# variable d'entorn TFG_DATA; veure config.py i el README).
+from config import DATASET_PATH, SEGMENTATIONS_PATH, TAULA_COMPLEMENTARIA_PATH
 
-# Mac
-# DATASET_PATH = Path("/Users/noemifontvoorhoeve/Desktop/TFG/manifest-1758635350325/HCC-TACE-Seg")
-
-TAULA_COMPLEMENTARIA_PATH = BASE_PATH / "41597_2023_1928_MOESM1_ESM.xlsx"
 DESCARTS_MANUALS = {"HCC_054", "HCC_089"}
-SEGMENTATIONS_PATH = BASE_PATH / "segmentations_MedSam2"
 OUT_DIR = BASE_PATH / "results_coregistre" / "visualitzacions_resultat"
 
 FASE_FIXA = "pv"

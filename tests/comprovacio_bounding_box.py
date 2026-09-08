@@ -34,9 +34,9 @@ from pathlib import Path
 from src import dataset, utils
 
 
+from config import DATASET_PATH, TAULA_COMPLEMENTARIA_PATH
+
 BASE_PATH = Path(__file__).parent
-DATASET_PATH = Path("/Volumes/noemifont/TFG DATA/manifest-1774974966100/HCC-TACE-Seg")
-TAULA_COMPLEMENTARIA_PATH = BASE_PATH / "41597_2023_1928_MOESM1_ESM.xlsx"
 OUTPUT_PATH = BASE_PATH / "comprovacio_box_prompt"
 
 # Descarts manuals: ha de coincidir amb el que passes a load_dataset al teu pipeline.

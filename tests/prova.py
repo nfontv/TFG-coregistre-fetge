@@ -1,12 +1,14 @@
+import sys, pathlib
+sys.path.insert(0, str(pathlib.Path(__file__).parent.parent))
+
 from pathlib import Path
-from tkinter.font import names
 import numpy as np
 
 import pandas as pd
 import re
 from datetime import datetime
 
-TAULA_SUPLEMENTARIA_PATH = Path('/Users/noemifontvoorhoeve/Desktop/CoregistreRigidFetge-main/41597_2023_1928_MOESM1_ESM.xlsx')
+from config import TAULA_COMPLEMENTARIA_PATH as TAULA_SUPLEMENTARIA_PATH
 
 df_raw = pd.read_excel(TAULA_SUPLEMENTARIA_PATH)
 df = pd.read_excel(TAULA_SUPLEMENTARIA_PATH,header=3)

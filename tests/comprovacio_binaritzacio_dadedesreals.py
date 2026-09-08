@@ -6,9 +6,8 @@ from scipy.ndimage import affine_transform
 from src import dataset, utils, transformation, metrics
 from pathlib import Path
 
-DATASET_PATH = Path(r"C:\Users\Noemí Font\Desktop\CoregistreRigidFetge-main\data tgf noemi\manifest-1783073007564\HCC-TACE-Seg")
-SEGMENTATIONS_PATH = Path(r"C:\Users\Noemí Font\Desktop\CoregistreRigidFetge-main\segmentations_MedSam2")
-TAULA = Path(r"C:\Users\Noemí Font\Desktop\CoregistreRigidFetge-main\41597_2023_1928_MOESM1_ESM.xlsx")
+from config import DATASET_PATH, SEGMENTATIONS_PATH
+from config import TAULA_COMPLEMENTARIA_PATH as TAULA
 
 ds = dataset.load_dataset(DATASET_PATH, TAULA, {"HCC_054", "HCC_089"})
 sample = next(s for s in ds if s["name"] == "HCC_025")
