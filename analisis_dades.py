@@ -3,7 +3,9 @@ import pandas as pd
 from pathlib import Path
 from scipy.stats import friedmanchisquare, f as f_dist, binomtest, bootstrap
 from statsmodels.stats.multitest import multipletests
-DADES_PATH = Path('/Users/noemifontvoorhoeve/Desktop/CoregistreRigidFetge-main/tots_els_experiments.csv')
+# Rutes centralitzades a config.py (les dades externes es configuren amb la
+# variable d'entorn TFG_DATA; veure config.py i el README).
+from config import TAULA_EXPERIMENTS_PATH as DADES_PATH
 
 #dades prefixades
 ALPHA= 0.05
@@ -259,19 +261,19 @@ if __name__ == "__main__":
     print("\nDESCRIPTIU: panorama general per configuració.")
     taula_descriptiva(df)
 
-   print("\n BLOC A: qualitat entre configuracions.")
-   # Anàlisi omnibus: les 12 configuracions, per fase mobil separada.
-   for fase in FASES:
-       run_analysis(df, fase, metric=METRIC, cd_out=f"{METRIC}_{fase}.png")
+    print("\n BLOC A: qualitat entre configuracions.")
+    # Anàlisi omnibus: les 12 configuracions, per fase mobil separada.
+    for fase in FASES:
+        run_analysis(df, fase, metric=METRIC, cd_out=f"{METRIC}_{fase}.png")
 
-   print("\nBLOC B: validació")
-   taula = executa_contrastos(df)
-   print(taula.to_string(index=False))
+    print("\nBLOC B: validació")
+    taula = executa_contrastos(df)
+    print(taula.to_string(index=False))
 
-   print("\nDESCRIPTIU: % que no millora el centroide ")
-   for fase in FASES:
-       print(f"\n-- {fase} --")
-       print(taxa_no_millora(df, fase).to_string(index=False))
+    print("\nDESCRIPTIU: % que no millora el centroide ")
+    for fase in FASES:
+        print(f"\n-- {fase} --")
+        print(taxa_no_millora(df, fase).to_string(index=False))
 
     print("\n Mediana del cost")
     mediana_cost(df, ["dsc_cmaes", "dsc_powell"])

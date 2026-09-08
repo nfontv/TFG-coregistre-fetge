@@ -7,9 +7,11 @@ from pathlib import Path
 from src import dataset, utils
 
 BASE_PATH = Path(__file__).parent
-DATASET_PATH = Path("/Volumes/noemifont/TFG DATA/manifest-1774974966100/HCC-TACE-Seg")
-TAULA_SUPL_PATH = Path("/Users/noemifontvoorhoeve/Desktop/CoregistreRigidFetge-main/41597_2023_1928_MOESM1_ESM.xlsx")
-SEGMENTATIONS_PATH = Path("/Users/noemifontvoorhoeve/Desktop/CoregistreRigidFetge-main/segmentations_MedSam2")
+
+# Rutes centralitzades a config.py (les dades externes es configuren amb la
+# variable d'entorn TFG_DATA; veure config.py i el README).
+from config import DATASET_PATH, SEGMENTATIONS_PATH
+from config import TAULA_COMPLEMENTARIA_PATH as TAULA_SUPL_PATH
 
 # Carpeta on desem les visualitzacions de comprovacio
 CHECK_VIS_PATH = BASE_PATH / "comprovacio_dataset_visualitzacions_prova2"

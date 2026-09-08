@@ -1,9 +1,6 @@
 import matplotlib.pyplot as plt
 from analisis_dades import carrega_dades, _parella_config_control, DADES_PATH
 
-from pathlib import Path
-DADES_PATH = Path('/Users/noemifontvoorhoeve/Desktop/CoregistreRigidFetge-main/tots_els_experiments.csv')
-
 df = carrega_dades(DADES_PATH)
 
 for fase in ["arterial", "pre-contrast"]:

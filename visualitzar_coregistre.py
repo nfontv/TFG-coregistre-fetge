@@ -18,13 +18,13 @@ from src import dataset, utils, transformation
 
 
 
-# Camins (ajusta'ls als teus; mateixos que run_nou.py)
 BASE_PATH = Path(__file__).parent
-#DATASET_PATH = Path("/Volumes/noemifont/TFG DATA/manifest-1774974966100/HCC-TACE-Seg")
-DATASET_PATH = Path("/Users/noemifontvoorhoeve/Desktop/TFG/manifest-1758635350325/HCC-TACE-Seg")
-TAULA_COMPLEMENTARIA_PATH = BASE_PATH / "41597_2023_1928_MOESM1_ESM.xlsx"
+
+# Rutes centralitzades a config.py (les dades externes es configuren amb la
+# variable d'entorn TFG_DATA; veure config.py i el README).
+from config import DATASET_PATH, SEGMENTATIONS_PATH, TAULA_COMPLEMENTARIA_PATH
+
 DESCARTS_MANUALS = {"HCC_054", "HCC_089"}
-SEGMENTATIONS_PATH = BASE_PATH / "segmentations_MedSam2"
 OUT_DIR = BASE_PATH / "results_coregistre" / "visualitzacions_resultat_004_hd_95_powell_precontrast"
 
 FASE_FIXA = "pv"

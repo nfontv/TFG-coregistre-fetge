@@ -10,12 +10,17 @@ from src import dataset, utils
 
 
 BASE_PATH = Path(__file__).parent
-DATASET_PATH = Path("/Volumes/noemifont/TFG DATA/manifest-1774974966100/HCC-TACE-Seg")
-SEGMENTATIONS_PATH =  Path("/Users/noemifontvoorhoeve/Desktop/CoregistreRigidFetge-main/segmentations_MedSam2_prova_box_n_adapt3")
+
+# Rutes centralitzades a config.py (les dades externes es configuren amb la
+# variable d'entorn TFG_DATA; veure config.py i el README).
+from config import DATA_ROOT, DATASET_PATH, TAULA_COMPLEMENTARIA_PATH
+
+# Variant de segmentacions d'una prova concreta (prompt de box + n adaptatiu),
+# no la carpeta de segmentacions definitiva.
+SEGMENTATIONS_PATH = DATA_ROOT / "segmentations_MedSam2_prova_box_n_adapt3"
 OUTPUT_DIR = BASE_PATH / "visualitzacio_seg_MedSam2_prova_box_n_adapt3"
 
 DESCARTS_MANUALS = {'HCC_054',"HCC_089"}
-TAULA_COMPLEMENTARIA_PATH = Path('/Users/noemifontvoorhoeve/Desktop/CoregistreRigidFetge-main/41597_2023_1928_MOESM1_ESM.xlsx')
 
 #NOMES_PACIENTS = ["HCC_024","HCC_029","HCC_043","HCC_056","HCC_057","HCC_060","HCC_062","HCC_084","HCC_075", "HCC_089","HCC_093","HCC_092","HCC_095","HCC_099","HCC_104"]
 NOMES_PACIENTS = ["HCC_029"]

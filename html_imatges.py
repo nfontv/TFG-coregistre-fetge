@@ -11,8 +11,11 @@ from datetime import datetime
 import base64
 
 
-RESULTS_PATH = Path("/Users/noemifontvoorhoeve/Desktop/CoregistreRigidFetge-main/comprovacio_dataset_visualitzacions")
-# Canvia aquest path al directori de resultats que vols revisar
+BASE_PATH = Path(__file__).parent
+
+# Carpeta de visualitzacions que es vol revisar. Canvia-la per la que toqui
+# (les genera visualitzacio_carrega_dades.py, visualitzar_segmentacions_guardades.py, etc.).
+RESULTS_PATH = BASE_PATH / "comprovacio_dataset_visualitzacions"
 OUTPUT_HTML = RESULTS_PATH / "galeria_basedades_inicial.html"
 
 

@@ -4,13 +4,14 @@ from src import dataset, utils, ai
 
 
 BASE_PATH = Path(__file__).parent
-#DATASET_PATH = Path("/Users/noemifontvoorhoeve/Desktop/TFG/manifest-1758635350325/HCC-TACE-Seg")
-DATASET_PATH = Path("/Volumes/noemifont/TFG DATA/manifest-1774974966100/HCC-TACE-Seg")
-TAULA_COMPLEMENTARIA_PATH = Path('/Users/noemifontvoorhoeve/Desktop/CoregistreRigidFetge-main/41597_2023_1928_MOESM1_ESM.xlsx')
-DESCARTS_MANUALS = {'HCC_054',"HCC_089"}
 
-# Carpeta on guardarem TOTES les segmentacions, reutilitzables per sempre
-SEGMENTATIONS_PATH = BASE_PATH / "segmentations_MedSam2"
+# Rutes centralitzades a config.py (les dades externes es configuren amb la
+# variable d'entorn TFG_DATA; veure config.py i el README).
+# SEGMENTATIONS_PATH es la carpeta on es guarden TOTES les segmentacions,
+# reutilitzables per sempre.
+from config import DATASET_PATH, TAULA_COMPLEMENTARIA_PATH, SEGMENTATIONS_PATH
+
+DESCARTS_MANUALS = {'HCC_054',"HCC_089"}
 os.makedirs(SEGMENTATIONS_PATH, exist_ok=True)
 
 #NOMES_PACIENTS = ["HCC_024","HCC_029","HCC_043","HCC_056","HCC_057","HCC_060","HCC_062","HCC_084","HCC_075", "HCC_089","HCC_093","HCC_092","HCC_095","HCC_099","HCC_104"]

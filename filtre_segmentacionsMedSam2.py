@@ -11,14 +11,20 @@ from pathlib import Path
 
 from src import dataset, utils, metrics
 BASE_PATH = Path(__file__).parent
-DATASET_PATH = Path("/Volumes/noemifont/TFG DATA/manifest-1774974966100/HCC-TACE-Seg")
-TAULA_COMPLEMENTARIA_PATH = BASE_PATH / "41597_2023_1928_MOESM1_ESM.xlsx"
-DESCARTS_MANUALS = {"HCC_054", "HCC_089"}
 
-# Ha de coincidir amb la carpeta on segmentacio_pacients.py va desar les segmentacions.
-SEGMENTATIONS_PATH = BASE_PATH / "segmentations_MedSam2"
-OUTPUT_PATH = BASE_PATH / "filtre_segmentacions"
-CSV_PATH = OUTPUT_PATH / "metriques_filtre.csv"
+# Rutes centralitzades a config.py (les dades externes es configuren amb la
+# variable d'entorn TFG_DATA; veure config.py i el README).
+# SEGMENTATIONS_PATH ha de coincidir amb la carpeta on segmentacio_pacients.py
+# va desar les segmentacions; CSV_PATH es el mateix fitxer que llegeix run.py.
+from config import (
+    DATASET_PATH,
+    TAULA_COMPLEMENTARIA_PATH,
+    SEGMENTATIONS_PATH,
+    FILTRE_SEGMENTACIONS_CSV_PATH as CSV_PATH,
+)
+
+DESCARTS_MANUALS = {"HCC_054", "HCC_089"}
+OUTPUT_PATH = CSV_PATH.parent
 
 # None = tots els pacients. Llista per provar-ne uns quants.
 NOMES_PACIENTS = None
