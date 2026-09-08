@@ -1,14 +1,6 @@
 """
 Donat un pacient, mostrem els tres talls (axial, coronal, sagital) de cada fase,
-SENSE mascara, pero preparats per COMPARAR fases entre elles:
-
-  - Finestra HU FIXA per a totes les fases -> el gris significa el mateix.
-  - Tall axial escollit per posicio Z FISICA (no per index) -> mateixa alcada
-    anatomica aproximada a totes les fases.
-
-Nota: sense co-registre les fases no estan perfectament alineades; aixo es una
-aproximacio. Per a una comparacio exacta cal remostrejar a graella comuna
-(utils.resample_to_common_grid) despres del registre.
+SENSE mascara.
 """
 
 import os
