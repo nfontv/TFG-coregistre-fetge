@@ -2,7 +2,7 @@
 
 Codi del Treball de Fi de Grau de Matemàtiques (UIB).
 
-El projecte implementa un pipeline complet per a: (1) lectura de sèries DICOM i conversió de segmentacions RT-Struct a màscares volumètriques 3D, (2) segmentació automàtica del fetge amb MedSAM2, i (3) co-registre longitudinal entre instants temporals d'un mateix pacient mitjançant transformacions rígides optimitzades sobre diverses funcions de pèrdua.
+El projecte implementa un pipeline complet per a: (1) lectura de sèries DICOM i conversió de segmentacions RT-Struct a màscares volumètriques 3D, (2) segmentació automàtica del fetge amb MedSAM2, i (3) co-registre entre fases d'un mateix pacient mitjançant transformacions rígides optimitzades sobre diverses funcions de pèrdua.
 
 ## Estructura
 
