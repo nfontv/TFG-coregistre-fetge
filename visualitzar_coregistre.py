@@ -118,36 +118,7 @@ def dibuixa_convergencia(history, titol, path_to_save):
 
 
 
-#def dibuixa_convergencia(history, titol, path_to_save):
-#    """
-#    Corba de convergencia: punts crus (totes les avaluacions) + millor-fins-ara.
-#    L'eix Y està fixat sempre entre 0 i 0.20 per poder comparar entre experiments.
-#    """
-#    history = np.asarray(history, dtype=float)
-#    if history.size == 0:
-#        print("[avis] history buit, no es grafica la convergencia.")
-#        return
-#    millor = np.minimum.accumulate(history)
-#    x = np.arange(1, len(history) + 1)
-#
-#    fig, ax = plt.subplots(figsize=(7, 4.5))
-#    ax.scatter(x, history, s=8, color="#888780", alpha=0.45, label="avaluacions (cru)")
-#    ax.plot(x, millor, color="#534AB7", lw=2.0, label="millor fins ara")
-#
-#    # Fixar l'eix Y de 0.0 a 0.20 de forma permanent
-#    ax.set_ylim(0.0, 0.20)
-#
-#    ax.set_xlabel("Avaluacions funcio de perdua (n_feval)")
-#    ax.set_ylabel("Valor de la perdua")
-#    ax.set_title(titol)
-#    ax.grid(True, alpha=0.3)
-#    ax.legend()
-#
-#    os.makedirs(os.path.dirname(path_to_save), exist_ok=True)
-#    fig.savefig(path_to_save, dpi=150, bbox_inches="tight")
-#    plt.close(fig)
-#    print(f"Figura desada a: {path_to_save}")
-#
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--pacient", required=True)
