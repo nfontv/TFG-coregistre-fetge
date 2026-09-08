@@ -5,8 +5,7 @@ Els fitxers que formen part del repositori (taula complementaria de TCIA,
 resultats dels experiments, figures) es resolen sols a partir de la ubicacio
 d'aquest fitxer: no cal tocar res.
 
-Les dades pesades NO son al repositori (series DICOM ~28 GB i mascares de
-MedSAM2 ~4.6 GB). Per executar el pipeline complet cal indicar on son:
+Per executar el pipeline complet cal indicar on sonles dades:
 
     export TFG_DATA="/Volumes/elmeudisc/tgf noemi"     # macOS / Linux
     set TFG_DATA=D:\\tgf noemi                          # Windows
@@ -27,7 +26,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 
 
-# ---------- Fitxers inclosos al repositori ----------
+# Fitxers inclosos al repositori 
 
 # Taula complementaria del dataset HCC-TACE-Seg (Moawad et al., 2023).
 TAULA_COMPLEMENTARIA_PATH = ROOT / "docs" / "41597_2023_1928_MOESM1_ESM.xlsx"
@@ -39,7 +38,7 @@ TAULA_EXPERIMENTS_PATH = RESULTATS_PATH / "tots_els_experiments.csv"
 FIGURES_PATH = ROOT / "figures"
 
 
-# ---------- Dades externes (no incloses al repositori) ----------
+# Dades externes (no incloses al repositori)
 
 DATA_ROOT = Path(os.environ.get("TFG_DATA", ROOT.parent / "tgf noemi"))
 
@@ -52,6 +51,6 @@ SEGMENTATIONS_PATH = DATA_ROOT / "segmentations_MedSam2"
 FILTRE_SEGMENTACIONS_CSV_PATH = DATA_ROOT / "filtre_segmentacions" / "metriques_filtre.csv"
 
 
-# ---------- Sortides de noves execucions ----------
+# Sortides de noves execucions
 
 RESULTS_BASE = ROOT / "results_coregistre"
