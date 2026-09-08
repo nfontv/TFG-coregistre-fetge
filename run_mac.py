@@ -314,29 +314,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-
-
-# La taula mestra 'results_coregistre/tots_els_experiments.csv' es construeix
-# SOLA: cada execucio hi afegeix les seves files (append_to_master). No cal
-# concatenar res manualment. Re-executar una config la substitueix.
-#
-# Per analitzar, un cop llancades les 5 configs:
-#
-#   import pandas as pd
-#   df = pd.read_csv("results_coregistre/tots_els_experiments.csv")
-#
-#   # Dues millores derivades (surten per resta):
-#   df["millora_total"] = df.dsc_final - df.dsc_identitat    # tot el pipeline
-#   df["aportacio_opt"] = df.dsc_final - df.dsc_centroides   # nomes l'optimitzador
-#
-#   df.groupby("config")[["dsc_final","millora_total","aportacio_opt"]].agg(["mean","std"])
-#   df[df.optimizer.isin(["powell","cmaes"]) & (df.loss_name=="dsc")]  # eix optimitzador
-#   df[(df.optimizer=="powell")]                                       # eix perdua
-#
-# Lectura (mapeja a Huang et al. 2023, files N / R / NR):
-#   identitat  -> "sense registre"      (millora_total ho mesura tot)
-#   centroides -> "pre-alineament"      (aportacio_opt aïlla l'optimitzador)
-#   final      -> "registre rigid"
-# ---------------------------------------------------------------------------
