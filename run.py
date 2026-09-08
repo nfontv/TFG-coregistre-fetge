@@ -51,7 +51,7 @@ FASES_MOBILS = ["arterial", "pre-contrast"]
 RESULTS_BASE = BASE_PATH / "results_coregistre"
 RESULTS_BASE.mkdir(parents=True, exist_ok=True)
 
-# None -> tots els pacients. NOMES_PACIENTS = None
+# None implica tots els pacients. NOMES_PACIENTS = None
 # Prova NOMES_PACIENTS = ["HCC_041", "HCC_025"]
 #NOMES_PACIENTS = ["HCC_057", "HCC_019", "HCC_080", "HCC_060"]
 NOMES_PACIENTS = None
