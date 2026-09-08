@@ -24,8 +24,8 @@ Totes les rutes del projecte estan centralitzades a `config.py`. Els fitxers que
 són dins el repositori (la taula complementària del dataset a `docs/`, els
 resultats a `resultats/`) es resolen automàticament i no cal configurar res.
 
-Per als scripts que necessiten les dades pesades —les sèries DICOM (~28 GB) i
-les màscares generades amb MedSAM2 (~4,6 GB), cap de les dues al repositori—
+Per als scripts que necessiten les sèries DICOM i
+les màscares generades amb MedSAM2, cap de les dues al repositori—
 cal indicar on són amb la variable d'entorn `TFG_DATA`:
 
 ```
