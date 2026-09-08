@@ -1,9 +1,4 @@
 """
-
-Cada figura mostra TRES talls: axial, coronal i sagital
-
-params_opt es LLEGEIX del CSV de resultats (no es recalcula).
-
 Us:
     python visualitzar_coregistre_3talls.py --pacient HCC_057 --fase_mobil pre-contrast --csv results_coregistre/tots_els_experiments.csv --config soft_dice_powell
 """
